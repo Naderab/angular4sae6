@@ -1,1 +1,17 @@
 {{title}}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Like</th>
+    </tr>
+    <tr *ngFor="let item of productList">
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.like}}</td>
+    </tr>
+</table>
