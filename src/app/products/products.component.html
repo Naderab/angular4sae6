@@ -1,17 +1,19 @@
-{{title}}
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Like</th>
-    </tr>
-    <tr *ngFor="let item of productList">
-        <td>{{item.id}}</td>
-        <td>{{item.title}}</td>
-        <td>{{item.quantity}}</td>
-        <td>{{item.price}}</td>
-        <td>{{item.like}}</td>
-    </tr>
-</table>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-4" *ngFor="let p of productList">
+            <div class="card" style="width: 18rem;">
+                <img src={{p.picture}} class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{p.title}}</h5>
+                  <p class="card-text">Price : {{p.price}}</p>
+                  <p class="card-text">Quantity : {{p.quantity}}</p>
+                  <p class="card-text">Like : {{p.like}}</p>
+                  <button (click)="BuyProduct(p.id)" [disabled]="p.quantity == 0">Buy</button>
+                 <button (click)="LikeProduct(p.id)">Like</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
