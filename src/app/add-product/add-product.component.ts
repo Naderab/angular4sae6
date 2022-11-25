@@ -8,9 +8,14 @@ import { Product } from '../core/product';
 })
 export class AddProductComponent implements OnInit {
   product:Product=new Product();
+  email!:string;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ajouter(){
+    console.log("function add works")
   }
 
 }
