@@ -9,7 +9,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailsProductComponent } from './details-product/details-product.component';
 import { FormsModule } from '@angular/forms';
-
+import { TodoListComponent } from './todo-list/todo-list.component';
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +18,14 @@ import { FormsModule } from '@angular/forms';
     ProductsComponent,
     AddProductComponent,
     NotFoundComponent,
-    DetailsProductComponent
+    DetailsProductComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

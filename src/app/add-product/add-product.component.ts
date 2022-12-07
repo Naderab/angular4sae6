@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from '../core/product';
+import { ProductService } from '../services/product.service';
+import { ConsumerProductService } from '../services/consumer-product.service';
 
 @Component({
   selector: 'app-add-product',
@@ -9,13 +12,18 @@ import { Product } from '../core/product';
 export class AddProductComponent implements OnInit {
   product:Product=new Product();
   email!:string;
-  constructor() { }
+  constructor(private _productService: ProductService,private router:Router,private consumerProduct:ConsumerProductService) { }
 
   ngOnInit(): void {
   }
 
   ajouter(){
-    console.log("function add works")
+    //this._productService.addProduct(this.product)
+    this.consumerProduct.addProduct(this.product).subscribe({
+      next : ()=>this.router.navigateByUrl('/products'),
+      error : (error)=>console.log(error)
+    })
+    
   }
 
 }

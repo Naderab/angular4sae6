@@ -19,13 +19,13 @@
         <label>Picture :</label>
         <input class="form-control" type="text" name="picture" [(ngModel)]="product.picture">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label>Email :</label>
         <input class="form-control" type="text" name="emaill" #emaill="ngModel" [(ngModel)]="email" pattern="[a-zA-Z]+[0-9]+@esprit.tn">
         <div class="alert alert-danger" *ngIf="emaill.touched && emaill.invalid">
             <div>Email invalid</div>
         </div>
-    </div>    
+    </div>     -->
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Save" [disabled]="f.invalid">
        

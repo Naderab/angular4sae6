@@ -4,11 +4,14 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { DetailsProductComponent } from './details-product/details-product.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductsComponent } from './products/products.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 const routes: Routes = [
   {path:'products',component:ProductsComponent},
   {path:'addProduct',component:AddProductComponent},
   {path:'product/:id/:title',component:DetailsProductComponent},
+  {path:'todo',component:TodoListComponent},
+
   {path:'',redirectTo:'/products',pathMatch:'full'},
   {path:'**',component:NotFoundComponent},
 ];

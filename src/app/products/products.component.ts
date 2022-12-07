@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../core/product';
+import { ProductService } from '../services/product.service';
+import { ConsumerProductService } from '../services/consumer-product.service';
 
 @Component({
   selector: 'app-products',
@@ -9,14 +11,14 @@ import { Product } from '../core/product';
 export class ProductsComponent implements OnInit {
   title : string = "Welcome to products list"
   productList:Product[]=[];
-  constructor() { }
+  constructor(private _productService: ProductService,private consumerProduct:ConsumerProductService) { }
 
   ngOnInit(): void {
-    this.productList = [
-      {id:'1',title:'T-shirt 1',quantity:10,price:100,like:0,picture:'https://static.bershka.net/4/photos2/2022/I/0/2/p/2766/777/800//01/2766777800_2_4_3.jpg?t=1660741431395'},
-      {id:'2',title:'T-shirt 2',quantity:0,price:20,like:0,picture:'https://static.bershka.net/4/photos2/2022/I/0/2/p/2766/777/800//01/2766777800_2_4_3.jpg?t=1660741431395'},
-      {id:'3',title:'T-shirt 3',quantity:10,price:50,like:0,picture:'https://static.bershka.net/4/photos2/2022/I/0/2/p/2766/777/800//01/2766777800_2_4_3.jpg?t=1660741431395'}
-    ];
+    //this.productList=this._productService.listService;
+    this.consumerProduct.getProducts().subscribe({
+      next : (data)=>this.productList = data,
+      error : (error)=>console.log(error)
+    })
   }
 
   BuyProduct(idProduct:string){
@@ -33,6 +35,12 @@ export class ProductsComponent implements OnInit {
         this.productList[i].like++
       }
     }
+  }
+
+  Delete(id:any){
+    this.consumerProduct.deleteProduct(id).subscribe({
+      next : ()=>this.productList=this.productList.filter((p)=>p.id != id)
+    });
   }
 
 }
