@@ -13,6 +13,9 @@ export class ConsumerProductService {
   getProducts(){
     return this.http.get<Product[]>(this.apiUrl)
   }
+  getProductById(id:number){
+    return this.http.get<Product>(this.apiUrl+"/"+id)
+  }
   addProduct(product:Product) {
     return this.http.post(this.apiUrl,product)
   }

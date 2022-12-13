@@ -10,7 +10,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailsProductComponent } from './details-product/details-product.component';
 import { FormsModule } from '@angular/forms';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ProductComponent } from './product/product.component';
+import { UpdateProductComponent } from './update-product/update-product.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,9 @@ import {HttpClientModule} from '@angular/common/http'
     AddProductComponent,
     NotFoundComponent,
     DetailsProductComponent,
-    TodoListComponent
+    TodoListComponent,
+    ProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,
